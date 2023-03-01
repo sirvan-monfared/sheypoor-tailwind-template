@@ -7,9 +7,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit | Sheypoor</title>
     <link rel="stylesheet" href="./css/app.css">
+
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body dir="rtl" class="bg-gray-50">
+<body dir="rtl" class="bg-gray-50" x-data="{ open: false }">
+
+    <div id="overlay" :class="{ 'hidden': ! open }"
+        class="hidden fixed z-40 w-screen h-screen inset-0 bg-gray-900 bg-opacity-60" @click=""></div>
+
+
+    <div id="dialog" :class="{ 'hidden': ! open }"
+        class="hidden fixed z-50 w-full h-full lg:w-96 lg:h-auto lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 bg-white rounded-md drop-shadow-lg">
+
+        <div class="bg-white shadow-sm border-b-2 lg:border-none flex items-center lg:justify-end gap-2 px-5 py-3">
+
+            <div class="lg:hidden flex items-center gap-2 cursor-pointer" @click="open = false">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+                <span class="text-base text-gray-700">بازگشت</span>
+            </div>
+
+            <div class="hidden lg:block cursor-pointer" @click="open = false">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </div>
+
+        </div>
+
+        <div class="px-5 mt-5 lg:mt-0 space-y-5">
+
+            <h1 class="text-xl text-center">انتخاب دسته بندی</h1>
+
+            <div class="relative flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    class="absolute right-2 w-5 h-5 stroke-gray-400 ">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+
+                <input class="h-12 w-full flex-auto border border-gray-300 px-8 rounded-md placeholder-gray-400"
+                    type="text" placeholder="جستجو...">
+            </div>
+        </div>
+
+        <div class="px-5 my-12">
+            <ul class="space-y-9 lg:space-y-6">
+                <li class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-6 h-6 fill-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+                                clip-rule="evenodd" />
+                        </svg>
+
+                        <span>وسایل نقلیه</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </li>
+                <li class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-6 h-6 fill-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+                                clip-rule="evenodd" />
+                        </svg>
+
+                        <span>وسایل نقلیه</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </li>
+                <li class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-6 h-6 fill-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+                                clip-rule="evenodd" />
+                        </svg>
+
+                        <span>وسایل نقلیه</span>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <!-- mobile header -->
     <header class="lg:hidden">
@@ -62,7 +160,7 @@
             <div class="max-w-screen-lg mx-auto">
                 <div class="py-3 flex items-center justify-between">
                     <img src="https://www.sheypoor.com/img/logo.png?v=2" alt="logo">
-                    
+
                 </div>
             </div>
         </div>
@@ -88,11 +186,20 @@
                     <!-- form fields -->
                     <div class="order-2 lg:order-1 flex-1">
                         <div class="p-3 bg-white rounded-md shadow-sm lg:shadow-md shadow-gray-300 space-y-6">
-                            <div>
+                            <div @click="open = true">
                                 <label class="block text-sm" for="">گروه بندی</label>
-                                <input type="text" name=""
-                                    class="h-12 w-full px-3 mt-2 border border-gray-300 rounded-lg focus:border-blue-500 placeholder-gray-400"
-                                    placeholder="انتخاب کنید">
+                                <div class="relative flex items-center mt-2">
+                                    <input type="text" name=""
+                                        class="h-12 w-full px-3 border cursor-pointer border-gray-300 rounded-lg focus:border-blue-500 placeholder-gray-400"
+                                        placeholder="عنوان مناسبی برای آگهی تان وارد کنید">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" class="w-6 h-6 stroke-gray-400 absolute left-2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.75 19.5L8.25 12l7.5-7.5" />
+                                    </svg>
+
+                                </div>
                                 <p class="text-sm mt-1"></p>
                             </div>
                             <div>
@@ -132,7 +239,8 @@
                                     <a href="#" class="text-blue-500">قوانین و شرایط استفاده</a>
                                     لاراپلاس اعلام می کنید.
                                 </p>
-                                <button type="submit" class=" w-full bg-blue-500 text-white rounded-md py-3 text-center">ثبت
+                                <button type="submit"
+                                    class=" w-full bg-blue-500 text-white rounded-md py-3 text-center">ثبت
                                     آگهی</button>
                             </div>
                         </div>
@@ -142,15 +250,17 @@
 
                     <!-- images -->
                     <div class="order-1 lg:order-2">
-                        <div class="p-3 bg-white rounded-md shadow-sm lg:shadow-md shadow-gray-300 relative cursor-pointer">
+                        <div
+                            class="p-3 bg-white rounded-md shadow-sm lg:shadow-md shadow-gray-300 relative cursor-pointer">
                             <h2 class="text-base font-medium">عکس آگهی</h2>
                             <div class="flex items-center gap-2 mt-3 ">
-                                <input type="file" class="opacity-0 absolute inset-0 w-full h-full">
+                                <input type="file" class="opacity-0 absolute inset-0 w-full h-full z-10">
                                 <div
                                     class="rounded-lg aspect-square border-2 border-dashed border-blue-500 text-blue-500 flex-1 flex flex-col items-center justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M12 4.5v15m7.5-7.5h-15" />
                                     </svg>
                                     <span class="text-sm text-current text-center">افزودن عکس</span>
                                 </div>
@@ -185,11 +295,13 @@
                                     </svg>
                                 </div>
                             </div>
-                        
+
                             <div class="text-sm mt-6">
-                                <p><strong class="">یک تصویر بهتر از هزار کلمه. </strong>با قرار دادن عکس شانس دیده شدن آگهی‌تان را<strong class=""> ۵ برابر </strong>کنید.</p>
+                                <p><strong class="">یک تصویر بهتر از هزار کلمه. </strong>با قرار دادن عکس شانس دیده شدن
+                                    آگهی‌تان را<strong class=""> ۵ برابر </strong>کنید.</p>
                             </div>
-                            <img class="hidden lg:block translate-y-3" src="https://www.sheypoor.com/x/imgs/3pF2kF-P.png" alt="image upload">
+                            <img class="hidden lg:block translate-y-3"
+                                src="https://www.sheypoor.com/x/imgs/3pF2kF-P.png" alt="image upload">
                         </div>
 
                         <div class="hidden lg:block space-y-6 mt-4">
@@ -198,7 +310,8 @@
                                 لاراپلاس اعلام می کنید.
                             </p>
                             <div class="text-end">
-                                <button type="submit" class=" bg-blue-500 text-white rounded-md py-3 px-6 text-center">ثبت
+                                <button type="submit"
+                                    class=" bg-blue-500 text-white rounded-md py-3 px-6 text-center">ثبت
                                     آگهی</button>
                             </div>
                         </div>
