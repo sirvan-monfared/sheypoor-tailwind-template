@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       fontFamily: {
         'sans': ['IRANSans']
+      },
+      fontSize: {
+        'xxs': '10px'
       }
     },
   },

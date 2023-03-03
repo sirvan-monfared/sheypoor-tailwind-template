@@ -36,12 +36,13 @@
             <div class="max-w-screen-lg mx-auto flex items-center justify-between">
                 <ul class="flex items-center justify-start gap-8">
                     <li class="text-base text-gray-500">
-                        <a class="block py-3" href="./list.html">همه آگهی ها</a>
+                        <a class="block py-3 hover:text-orange-500" href="./list.html">همه آگهی ها</a>
                     </li>
-                    <li class="text-base text-gray-500">پشتیبانی</li>
+                    <li class="text-base text-gray-500 hover:text-orange-500">پشتیبانی</li>
                 </ul>
                 <div class="flex items-center justify-end gap-8">
-                    <a href="#" class="flex items-center jsutify-center gap-2 text-gray-500 py-3">
+                    <a href="chat.html"
+                        class="flex items-center jsutify-center gap-2 text-gray-500 hover:text-orange-500 py-3">
                         <span> چت های من</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                             <path
@@ -50,14 +51,32 @@
                                 d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 001.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0015.75 7.5z" />
                         </svg>
                     </a>
-                    <a href="#" class="flex items-center jsutify-center gap-2 text-gray-500 py-3">
-                        <span> حساب من</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                            <path fill-rule="evenodd"
-                                d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
+                    <div class="relative" x-data="{open: false}">
+                        <a href="#"
+                            class="flex items-center jsutify-center gap-2 text-gray-500 hover:text-orange-500 py-3"
+                            @click="open = ! open" @click.away="open = false">
+                            <span> حساب من</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="w-6 h-6">
+                                <path fill-rule="evenodd"
+                                    d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <ul :class="{ hidden: ! open }"
+                            class="hidden absolute left-0 top-10 w-48 bg-white rounded-md shadow-md z-10 py-4 px-6 text-gray-500 space-y-4">
+                            <li><a class="hover:text-orange-500" href="./login.html">ورود | ثبت نام</a></li>
+                            <li><a class="hover:text-orange-500" href="#">پسندیده ها</a></li>
+                            <li><a class="hover:text-orange-500" href="my_listing.html">آگهی های من</a></li>
+                            <li><a class="hover:text-orange-500" href="#">خریدهای من</a></li>
+                            <li><a class="hover:text-orange-500" href="#">مدیریت سفارش ها</a></li>
+                            <li><a class="hover:text-orange-500" href="#">پروفایل من</a></li>
+                            <li><a class="hover:text-orange-500" href="#">جستجوهای من</a></li>
+                            <li><a class="hover:text-orange-500" href="#">پرداخت های من</a></li>
+                            <li><a class="hover:text-orange-500" href="chat.html">چت های من</a></li>
+                            <li><a class="hover:text-orange-500" href="#">خروج</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,13 +84,20 @@
             <div class="max-w-screen-lg mx-auto">
                 <div class="py-3 flex items-center justify-between">
                     <img src="https://www.sheypoor.com/img/logo.png?v=2" alt="logo">
-
+                    <a href="submit.html" class="bg-blue-500 px-4 py-2 rounded-full flex justify-center items-center gap-2 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                            <path fill-rule="evenodd"
+                                d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>ثبت آگهی رایگان</span>
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="container mx-auto lg:max-w-screen-lg">
+    <section class="container mx-auto lg:max-w-screen-lg min-h-[calc(100vh-125px)] lg:min-h-[calc(100vh-25rem)]">
         <div class="p-5">
             <div class="lg:max-w-md lg:mx-auto lg:my-8 lg:bg-white lg:shadow-sm lg:rounded-md lg:p-5">
 
@@ -93,8 +119,7 @@
         </div>
     </section>
 
-    <!-- mobile footer -->
-
+    <!-- Desktop footer -->
     <footer class="mt-8 hidden lg:block">
         <div class="bg-gray-200">
             <div class="max-w-screen-lg mx-auto">
@@ -126,8 +151,47 @@
                             <li><a href="#">فرصت های شغلی</a></li>
                         </ul>
                     </div>
-                    <div class="flex-1">
+                    <div>
+                        <div class="flex items-center">
+                            <img src="./images/samandehi.png">
+                            <img src="./images/enamad.png" width="92px" height="100px">
+                            <img src="./images/ecunion.png">
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="bg-white p-1 px-2 gap-7 rounded-md shadow-sm flex items-center">
+                            <div>
+                                <p class="text-gray-500 text-xs">اپلیکیشن اندروید</p>
+                                <p class="text-black mt-1">دانلود مستقیم</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15M9 12l3 3m0 0l3-3m-3 3V2.25" />
+                            </svg>
+                        </div>
+                        <div class="bg-white p-1 px-2 gap-7 rounded-md shadow-sm flex items-center">
+                            <div>
+                                <p class="text-gray-500 text-xs">اپلیکیشن اندروید</p>
+                                <p class="text-black mt-1">دانلود مستقیم</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
 
+                        </div>
+                        <div class="bg-white p-1 px-2 gap-7 rounded-md shadow-sm flex items-center">
+                            <div>
+                                <p class="text-black ">همه مارکت ها</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
